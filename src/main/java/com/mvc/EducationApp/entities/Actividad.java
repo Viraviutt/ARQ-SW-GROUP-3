@@ -23,16 +23,16 @@ public class Actividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idActividad;
 
-    @Column(nullable = false)    
+    @Column(nullable = false)
     private String titulo;
 
-    @Column(nullable = false)    
+    @Column(nullable = false)
     private String descripcion;
 
-    @Column(nullable = false)    
+    @Column(nullable = false)
     private String nota;
 
-    @Column(nullable = false)    
+    @Column(nullable = false)
     private Materia materia;
 
 }
