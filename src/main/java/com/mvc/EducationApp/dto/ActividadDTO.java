@@ -5,7 +5,7 @@ import com.mvc.EducationApp.entities.Materia;
 import lombok.Data;
 
 @Data
-public class Actividad {
+public class ActividadDTO {
 
     private Long idActividad;
 
