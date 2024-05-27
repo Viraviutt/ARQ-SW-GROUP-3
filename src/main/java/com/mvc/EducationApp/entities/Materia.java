@@ -39,6 +39,7 @@ public class Materia {
 
     @ManyToMany
     @JoinTable(name = "grados", joinColumns = @JoinColumn(name = "idMateria"), inverseJoinColumns = @JoinColumn(name = "idGrado"))
+    @Builder.Default
     private Set<Grado> grados = new HashSet<>();
 
     public void addGrado(Grado grado) {
