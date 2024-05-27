@@ -1,10 +1,9 @@
 package com.mvc.EducationApp.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,11 +18,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Docente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ManyToOne
+    @JoinColumn(name = "idDocente", referencedColumnName = "idUsuario")
     private Long idDocente;
 
-    @Column(nullable = false)    
-    private String gradoQueLidera;
+    @OneToOne
+    @JoinColumn(name = "grado", referencedColumnName = "idGrado")
+    private Grado gradoQueLidera;
 
 }
