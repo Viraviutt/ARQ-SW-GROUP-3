@@ -25,7 +25,7 @@ public class Horario {
     private Long idHorario;
     
     @OneToOne
-    @JoinColumn(name = "grado", referencedColumnName = "idGrado")
-    private Grado grado;
+    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
+    private Grado idGrado;
 
 }

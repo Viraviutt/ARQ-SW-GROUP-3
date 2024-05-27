@@ -1,6 +1,7 @@
 package com.mvc.EducationApp.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -17,12 +18,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Estudiante {
 
+    @Id
     @ManyToOne
-    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario")
+    @JoinColumn(name = "idEstudiante", referencedColumnName = "idEstudiante")
     private Long idEstudiante;
 
     @ManyToOne
-    @JoinColumn(name = "grado", referencedColumnName = "idGrado")
-    private String grado;
+    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
+    private String idGrado;
 
 }

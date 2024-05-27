@@ -1,6 +1,5 @@
 package com.mvc.EducationApp.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,28 +15,20 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder
 @Data
-@Table(name = "usuarios")
+@Table(name = "docentes_grados")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class DocentesDeGrado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario;
-
-    @Column(nullable = false)
-    private String nombres;
-
-    @Column(nullable = false)
-    private String apellidos;
-
-    @Column(nullable = false)
-    private String correo;
-
-    @Column(nullable = false)
-    private String clave;
+    private Long idDocenteGrado;
+    
+    @ManyToOne
+    @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
+    private Docente idDocente;
 
     @ManyToOne
-    @JoinColumn(name = "idRol", referencedColumnName = "idRol")
-    private Rol idRol;
+    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
+    private Grado idGrado;
 }

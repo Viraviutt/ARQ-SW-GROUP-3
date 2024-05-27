@@ -15,5 +15,5 @@ public class ActividadDTO {
  
     private String nota;
   
-    private Materia materia;
+    private Materia idMateria;
 }

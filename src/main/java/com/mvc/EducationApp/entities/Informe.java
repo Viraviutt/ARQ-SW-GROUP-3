@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,10 +38,11 @@ public class Informe {
     private String contenido;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp fechaInforme;
 
     @OneToOne
-    @JoinColumn(name = "actividad", referencedColumnName = "idActividad")
-    private Actividad actividad;
+    @JoinColumn(name = "idActividad", referencedColumnName = "idActividad")
+    private Actividad idActividad;
 
 }

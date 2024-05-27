@@ -9,5 +9,5 @@ public class HorarioDTO {
 
     private Long idHorario;
     
-    private Grado grado;
+    private Grado idGrado;
 }

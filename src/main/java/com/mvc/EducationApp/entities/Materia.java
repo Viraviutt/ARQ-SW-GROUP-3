@@ -1,7 +1,5 @@
 package com.mvc.EducationApp.entities;
 
-import java.util.Set;
-import java.util.HashSet;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,8 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -34,21 +30,7 @@ public class Materia {
     private String nombre;
 
     @OneToOne
-    @JoinColumn(name = "docente", referencedColumnName = "idDocente")
-    private Docente docente;
+    @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
+    private Docente idDocente;
 
-    @ManyToMany
-    @JoinTable(name = "grados", joinColumns = @JoinColumn(name = "idMateria"), inverseJoinColumns = @JoinColumn(name = "idGrado"))
-    @Builder.Default
-    private Set<Grado> grados = new HashSet<>();
-
-    public void addGrado(Grado grado) {
-        grados.add(grado);
-        grado.getMaterias().add(this);
-    }
-
-    public void removeGrado(Grado grado) {
-        grados.remove(grado);
-        grado.getMaterias().remove(this);
-    }
 }

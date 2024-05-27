@@ -10,6 +10,6 @@ import com.mvc.EducationApp.entities.Docente;
 public interface DocenteMapper {
     DocenteMapper INSTANCE = Mappers.getMapper(DocenteMapper.class);
 
-    public DocenteDTO toDTO(Docente usuario);
-    public Docente toEntity(DocenteDTO usuarioDTO);
+    public DocenteDTO toDTO(Docente docente);
+    public Docente toEntity(DocenteDTO docenteDTO);
 }

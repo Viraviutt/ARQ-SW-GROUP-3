@@ -7,5 +7,5 @@ public class EstudianteDTO {
 
     private Long idEstudiante;
 
-    private String grado;
+    private String idGrado;
 }

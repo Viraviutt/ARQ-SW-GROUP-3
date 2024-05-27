@@ -13,5 +13,5 @@ public class TemaDTO {
 
     private String descripcion;
 
-    private Materia materia;
+    private Materia idMateria;
 }

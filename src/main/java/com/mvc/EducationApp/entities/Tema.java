@@ -32,6 +32,6 @@ public class Tema {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "materia", referencedColumnName = "idMateria")
-    private Materia materia;
+    @JoinColumn(name = "idMateria", referencedColumnName = "idMateria")
+    private Materia idMateria;
 }

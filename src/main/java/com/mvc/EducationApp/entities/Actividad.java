@@ -35,7 +35,7 @@ public class Actividad {
     private String nota;
 
     @ManyToOne
-    @JoinColumn(name = "materia", referencedColumnName = "idMateria")
-    private Materia materia;
+    @JoinColumn(name = "idMateria", referencedColumnName = "idMateria")
+    private Materia idMateria;
 
 }
