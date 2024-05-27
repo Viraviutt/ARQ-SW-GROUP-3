@@ -35,7 +35,7 @@ public class Usuario {
     private String correo;
 
     @Column(nullable = false)
-    private String password;
+    private String clave;
 
     @ManyToOne
     @JoinColumn(name = "rol", referencedColumnName = "idRol")
