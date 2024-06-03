@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Actividad;
 
 @Mapper
 public interface ActividadMapper {
+    
     ActividadMapper INSTANCE = Mappers.getMapper(ActividadMapper.class);
 
     public ActividadDTO toDTO(Actividad actividad);

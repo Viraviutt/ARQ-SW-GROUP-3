@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Tema;
 
 @Mapper
 public interface TemaMapper {
+    
     TemaMapper INSTANCE = Mappers.getMapper(TemaMapper.class);
 
     public TemaDTO toDTO(Tema tema);

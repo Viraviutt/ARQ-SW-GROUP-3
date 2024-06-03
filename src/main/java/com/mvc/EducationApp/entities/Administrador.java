@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder
 @Data
-@Table(name = "administradores")
+@Table(name = "admins")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Administrador {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "idAdmin", referencedColumnName = "idAdmin")
+    @ManyToOne(targetEntity = Usuario.class)
+    @JoinColumn(name = "idAdmin", referencedColumnName = "idUsuario", unique = true)
     private Long idAdmin;
 
 }

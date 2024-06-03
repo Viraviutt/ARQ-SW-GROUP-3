@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Administrador;
 
 @Mapper
 public interface AdminMapper {
+    
     AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 
     public AdministradorDTO toDTO(Administrador administrador);

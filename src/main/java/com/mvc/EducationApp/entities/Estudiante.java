@@ -18,13 +18,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Estudiante {
 
+    
+    @ManyToOne(targetEntity = Usuario.class)
+    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario", unique = true)
     @Id
-    @ManyToOne
-    @JoinColumn(name = "idEstudiante", referencedColumnName = "idEstudiante")
     private Long idEstudiante;
 
     @ManyToOne
     @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
-    private String idGrado;
+    private Grado idGrado;
 
 }

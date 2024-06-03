@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Horario;
 
 @Mapper
 public interface HorarioMapper {
+    
     HorarioMapper INSTANCE = Mappers.getMapper(HorarioMapper.class);
 
     public HorarioDTO toDTO(Horario usuario);

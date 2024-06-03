@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,12 +19,8 @@ import lombok.NoArgsConstructor;
 public class Docente {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
+    @ManyToOne(targetEntity = Usuario.class)
+    @JoinColumn(name = "idDocente", referencedColumnName = "idUsuario", unique = true)
     private Long idDocente;
-
-    @OneToOne
-    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
-    private Grado idGrado;
 
 }

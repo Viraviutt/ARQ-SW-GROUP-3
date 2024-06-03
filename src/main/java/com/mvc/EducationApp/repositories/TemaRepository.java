@@ -13,11 +13,11 @@ import com.mvc.EducationApp.entities.Tema;
 public interface TemaRepository extends JpaRepository<Tema, Long> {
 
     /** find by email */
-    @Query("SELECT t FROM Tema t WHERE lower(t.nombre) = lower(?1)")
+    @Query("SELECT t FROM Tema t WHERE lower(t.nombre) LIKE lower(?1)")
     Optional<Tema> findByNombre(String email);
 
     /** find by nombre de materia */
-    @Query("SELECT t FROM Tema t JOIN FETCH t.materia m WHERE lower(m.nombre) = lower(?1)")
+    @Query("SELECT t FROM Tema t JOIN FETCH t.idMateria m WHERE lower(m.nombre) LIKE lower(?1)")
     Optional<List<Tema>> findByMateria(String materia);
 
 }

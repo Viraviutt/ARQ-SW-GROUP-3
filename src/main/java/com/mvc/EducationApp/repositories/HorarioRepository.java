@@ -12,7 +12,7 @@ import com.mvc.EducationApp.entities.Horario;
 public interface HorarioRepository extends JpaRepository<Horario, Long> {
 
     /* find by grado */
-    @Query("SELECT h FROM Horario h WHERE h.grado.nombre = ?1 AND h.grado.codigo = ?2")
+    @Query("SELECT h FROM Horario h JOIN FETCH h.idGrado g WHERE lower(g.nombre) LIKE lower(?1) AND lower(g.codigo) LIKE lower(?2)")
     Optional<Horario> findByGrado(String nombre, String codigo);
 
 }

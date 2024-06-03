@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Materia;
 
 @Mapper
 public interface MateriaMapper {
+    
     MateriaMapper INSTANCE = Mappers.getMapper(MateriaMapper.class);
 
     public MateriaDTO toDTO(Materia materia);

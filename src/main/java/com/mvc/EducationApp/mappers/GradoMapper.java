@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Grado;
 
 @Mapper
 public interface GradoMapper {
+    
     GradoMapper INSTANCE = Mappers.getMapper(GradoMapper.class);
 
     public GradoDTO toDTO(Grado usuario);

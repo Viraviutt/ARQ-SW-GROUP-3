@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Estudiante;
 
 @Mapper
 public interface EstudianteMapper {
+    
     EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
     public EstudianteDTO toDTO(Estudiante usuario);

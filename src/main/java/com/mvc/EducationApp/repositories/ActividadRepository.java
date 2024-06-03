@@ -14,7 +14,7 @@ import com.mvc.EducationApp.entities.Actividad;
 public interface ActividadRepository extends JpaRepository<Actividad, Long> {
 
     /* find by nombre de una materia */
-    @Query("SELECT a FROM Actividad a JOIN FETCH a.materia m WHERE lower(m.nombre) LIKE lower(?1)")
+    @Query("SELECT a FROM Actividad a JOIN FETCH a.idMateria m WHERE lower(m.nombre) LIKE lower(?1)")
     Optional<List<Actividad>> findByFechaAndMateria(String materia);
 
-}
+ }

@@ -18,7 +18,7 @@ public interface InformeRepository extends JpaRepository<Informe, Long> {
     Optional<List<Informe>> findByFechaBetween(Timestamp fecha1, Timestamp fecha2);
 
     /* Retrieve informes de una fecha y el nombre de una materia */
-    @Query("SELECT i FROM Informe i JOIN FETCH i.actividad a JOIN FETCH a.materia m WHERE i.fechaInforme = ?1 AND lower(m.nombre) LIKE lower(?2)")
+    @Query("SELECT i FROM Informe i JOIN FETCH i.idActividad a JOIN FETCH a.idMateria m WHERE i.fechaInforme = ?1 AND lower(m.nombre) LIKE lower(?2)")
     Optional<List<Informe>> findByFechaAndMateria(Timestamp fecha, String materia);
 
 }

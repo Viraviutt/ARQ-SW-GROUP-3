@@ -8,6 +8,7 @@ import com.mvc.EducationApp.entities.Informe;
 
 @Mapper
 public interface InformeMapper {
+    
     InformeMapper INSTANCE = Mappers.getMapper(InformeMapper.class);
 
     public InformeDTO toDTO(Informe usuario);
