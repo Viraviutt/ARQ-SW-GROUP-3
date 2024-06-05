@@ -1,10 +1,10 @@
 package com.mvc.EducationApp.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class DocenteDTO {
-
-    private Long idDocente;
+@EqualsAndHashCode(callSuper = false)
+public class DocenteDTO extends UsuarioDTO{
 
 }

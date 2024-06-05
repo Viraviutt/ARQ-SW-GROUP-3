@@ -8,19 +8,17 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "admins")
-@NoArgsConstructor
-@AllArgsConstructor
-public class Administrador {
+public class Administrador extends Usuario{
 
-    @Id
-    @ManyToOne(targetEntity = Usuario.class)
-    @JoinColumn(name = "idAdmin", referencedColumnName = "idUsuario", unique = true)
-    private Long idAdmin;
+    public Administrador() {
+        super();
+    }
 
 }

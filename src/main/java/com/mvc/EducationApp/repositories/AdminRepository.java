@@ -1,4 +1,4 @@
-/* package com.mvc.EducationApp.repositories;
+package com.mvc.EducationApp.repositories;
 
 import java.util.Optional;
 
@@ -12,4 +12,4 @@ public interface AdminRepository extends JpaRepository<Administrador, Long> {
 
     Optional<Administrador> findByIdAdmin(Long idAdmin);
     
-} */
+}
