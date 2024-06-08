@@ -6,8 +6,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class EstudianteDTO extends UsuarioDTO{
+public class EstudianteDTO {
+
+    private Long idEstudiante;
+
+    private String nombres;
+
+    private String apellidos;
+
+    private String correo;
 
     private Grado idGrado;
+
 }

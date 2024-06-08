@@ -4,7 +4,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class DocenteDTO extends UsuarioDTO{
+public class DocenteDTO {
 
+    private Long idDocente;
+
+    private String nombres;
+
+    private String apellidos;
+
+    private String correo;
+    
 }

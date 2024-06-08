@@ -1,6 +1,7 @@
 package com.mvc.EducationApp.repositories;
 
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +14,6 @@ public interface GradoRepository extends JpaRepository<Grado, Long> {
 
     /* find by nombre */
     @Query("SELECT g FROM Grado g WHERE g.nombre = ?1")
-    Optional<Grado> findByNombre(String nombre);
+    Optional<List<Grado>> findByNombre(String nombre);
 
 }

@@ -9,7 +9,5 @@ import com.mvc.EducationApp.entities.Administrador;
 
 @RepositoryRestResource
 public interface AdminRepository extends JpaRepository<Administrador, Long> {
-
-    Optional<Administrador> findByIdAdmin(Long idAdmin);
     
 }

@@ -8,14 +8,13 @@ import org.mapstruct.factory.Mappers;
 import com.mvc.EducationApp.dto.AdministradorDTO;
 import com.mvc.EducationApp.entities.Administrador;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface AdminMapper extends UsuarioMapper{
+@Mapper
+public interface AdminMapper {
     
     AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 
-    @Mapping(target = "idUsuario", source = "idUsuario")
     public AdministradorDTO toDTO(Administrador administrador);
 
-    @Mapping(target = "idUsuario", source = "idUsuario")
+    @Mapping(target = "clave", ignore = true)
     public Administrador toEntity(AdministradorDTO administradorDTO);
 }

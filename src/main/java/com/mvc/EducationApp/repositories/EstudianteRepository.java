@@ -1,4 +1,4 @@
-/* package com.mvc.EducationApp.repositories;
+package com.mvc.EducationApp.repositories;
 
 import java.util.Optional;
 
@@ -10,6 +10,4 @@ import com.mvc.EducationApp.entities.Estudiante;
 @RepositoryRestResource
 public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
-    Optional<Estudiante> findByIdEstudiante(Long idEstudiante);
-
-} */
+}

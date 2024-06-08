@@ -24,11 +24,11 @@ public class DocentesDeGrado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDocenteGrado;
     
-    @ManyToOne
+    @ManyToOne(targetEntity = Docente.class)
     @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
     private Docente idDocente;
 
-    @ManyToOne
+    @ManyToOne  
     @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
     private Grado idGrado;
 }

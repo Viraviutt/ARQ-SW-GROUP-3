@@ -8,14 +8,13 @@ import org.mapstruct.factory.Mappers;
 import com.mvc.EducationApp.dto.DocenteDTO;
 import com.mvc.EducationApp.entities.Docente;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface DocenteMapper extends UsuarioMapper{
+@Mapper
+public interface DocenteMapper {
     
     DocenteMapper INSTANCE = Mappers.getMapper(DocenteMapper.class);
 
-    @Mapping(target = "idUsuario", source = "idUsuario")
     public DocenteDTO toDTO(Docente docente);
-
-    @Mapping(target = "idUsuario", source = "idUsuario")
+    
+    @Mapping(target = "clave", ignore = true)
     public Docente toEntity(DocenteDTO docenteDTO);
 }

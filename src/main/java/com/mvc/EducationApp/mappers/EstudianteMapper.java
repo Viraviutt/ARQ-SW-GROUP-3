@@ -8,14 +8,14 @@ import org.mapstruct.factory.Mappers;
 import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.entities.Estudiante;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface EstudianteMapper extends UsuarioMapper {
+@Mapper
+public interface EstudianteMapper {
     
     EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
-    @Mapping(target = "idUsuario", source = "idUsuario")
-    public EstudianteDTO toDTO(Estudiante usuario);
+    @Mapping(target = "idGrado", source = "idGrado")
+    public EstudianteDTO toDTO(Estudiante estudiante);
 
-    @Mapping(target = "idUsuario", source = "idUsuario")
-    public Estudiante toEntity(EstudianteDTO usuarioDTO);
+    @Mapping(target = "clave", ignore = true)
+    public Estudiante toEntity(EstudianteDTO estudianteDTO);
 }
