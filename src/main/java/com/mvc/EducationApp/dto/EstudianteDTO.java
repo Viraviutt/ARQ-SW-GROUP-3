@@ -3,7 +3,6 @@ package com.mvc.EducationApp.dto;
 import com.mvc.EducationApp.entities.Grado;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
 public class EstudianteDTO {
@@ -17,6 +16,8 @@ public class EstudianteDTO {
     private String estado;
 
     private String correo;
+
+    private String clave;
 
     private Grado idGrado;
 

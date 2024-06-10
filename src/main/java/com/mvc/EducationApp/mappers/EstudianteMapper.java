@@ -2,7 +2,6 @@ package com.mvc.EducationApp.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import com.mvc.EducationApp.dto.EstudianteDTO;
@@ -16,6 +15,5 @@ public interface EstudianteMapper {
     @Mapping(target = "idGrado", source = "idGrado")
     public EstudianteDTO toDTO(Estudiante estudiante);
 
-    @Mapping(target = "clave", ignore = true)
     public Estudiante toEntity(EstudianteDTO estudianteDTO);
 }

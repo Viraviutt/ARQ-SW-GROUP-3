@@ -35,7 +35,7 @@ public class ActividadController {
 
         log.info("Obteniendo todos los actividads");
         HashMap<String, Object> response = new HashMap<>();
-        List<ActividadDTO> actividads = actividadServicio.getAllActividads();
+        List<ActividadDTO> actividads = actividadServicio.getAllActividades();
         response.put("actividads", actividads);
 
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -1,7 +1,6 @@
 package com.mvc.EducationApp.dto;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
 public class AdministradorDTO {
