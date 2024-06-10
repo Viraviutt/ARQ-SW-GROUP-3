@@ -12,7 +12,7 @@ public interface EstudianteMapper {
     
     EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
-    @Mapping(target = "idGrado", source = "idGrado")
+    @Mapping(source = "idGrado.idGrado", target = "idGrado")
     public EstudianteDTO toDTO(Estudiante estudiante);
 
     @Mapping(target = "idGrado", ignore = true)
