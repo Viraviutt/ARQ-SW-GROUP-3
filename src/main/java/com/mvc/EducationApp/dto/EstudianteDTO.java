@@ -14,6 +14,8 @@ public class EstudianteDTO {
 
     private String apellidos;
 
+    private String estado;
+
     private String correo;
 
     private Grado idGrado;

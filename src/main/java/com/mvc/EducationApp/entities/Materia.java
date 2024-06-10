@@ -29,8 +29,4 @@ public class Materia {
     @Column(nullable = false)
     private String nombre;
 
-    @OneToOne(targetEntity = Docente.class)
-    @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
-    private Docente idDocente;
-
 }

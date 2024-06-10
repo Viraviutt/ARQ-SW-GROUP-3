@@ -52,7 +52,7 @@ public class EstudianteService {
 
         return null;
     }
-/* 
+ 
     public List<EstudianteDTO> getEstudianteByNombre(String nombre) {
 
         try {
@@ -68,7 +68,7 @@ public class EstudianteService {
 
         return List.of();    
     }
-
+/*
     public List<EstudianteDTO> getEstudianteByCorreo(String correo) {
 
         try {

@@ -58,7 +58,7 @@ public class DocenteController {
         response.put("docente", docente);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
+ 
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<HashMap<String, Object>> getDocentesByNombre(@PathVariable("nombre") String nombre) {
 
@@ -69,7 +69,8 @@ public class DocenteController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
+    
+/*
     @GetMapping("/correo/{correo}")
     public ResponseEntity<HashMap<String, Object>> getDocentesByCorreo(@PathVariable("correo") String correo) {
 

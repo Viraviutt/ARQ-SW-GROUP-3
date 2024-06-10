@@ -12,6 +12,8 @@ public class ActividadDTO {
     private String titulo;
 
     private String descripcion;
+
+    private String estado;
  
     private String nota;
   

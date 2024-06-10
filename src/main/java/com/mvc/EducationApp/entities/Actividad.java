@@ -32,6 +32,9 @@ public class Actividad {
     private String descripcion;
 
     @Column(nullable = false)
+    private String estado;
+
+    @Column(nullable = false)
     private String nota;
 
     @ManyToOne

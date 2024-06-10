@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mvc.EducationApp.dto.DocenteDTO;
 import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.services.EstudianteService;
 
@@ -33,7 +34,7 @@ public class EstudianteController {
     @GetMapping("")
     public ResponseEntity<HashMap<String, Object>> getEstudiantes() {
 
-        log.info("Obteniendo todos los estudiantes");
+        log.info("Obteniendo todos los docentes");
         HashMap<String, Object> response = new HashMap<>();
         List<EstudianteDTO> estudiantes = estudianteServicio.getAllEstudiantes();
         response.put("estudiantes", estudiantes);
@@ -58,7 +59,7 @@ public class EstudianteController {
         response.put("estudiante", estudiante);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
+ 
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<HashMap<String, Object>> getEstudiantesByNombre(@PathVariable("nombre") String nombre) {
 
@@ -69,7 +70,7 @@ public class EstudianteController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
+/*
     @GetMapping("/correo/{correo}")
     public ResponseEntity<HashMap<String, Object>> getEstudiantesByCorreo(@PathVariable("correo") String correo) {
 

@@ -33,6 +33,9 @@ public class Estudiante {
     private String apellidos;
 
     @Column(nullable = false)
+    private String estado;
+
+    @Column(nullable = false)
     private String correo;
 
     @Column(nullable = false)

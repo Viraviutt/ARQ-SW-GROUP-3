@@ -12,6 +12,4 @@ public class MateriaDTO {
 
     private String nombre;
 
-    private Docente idDocente;
-
 }

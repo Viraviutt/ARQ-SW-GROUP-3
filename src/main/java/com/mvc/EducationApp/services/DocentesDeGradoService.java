@@ -52,7 +52,7 @@ public class DocentesDeGradoService {
 
         return null;
     }
-/* 
+/*
     public List<DocentesDeGradoDTO> getDocentesDeGradoByNombre(String nombre) {
 
         try {
@@ -68,6 +68,7 @@ public class DocentesDeGradoService {
 
         return List.of();    
     }
+
 
     public List<DocentesDeGradoDTO> getDocentesDeGradoByCorreo(String correo) {
 
