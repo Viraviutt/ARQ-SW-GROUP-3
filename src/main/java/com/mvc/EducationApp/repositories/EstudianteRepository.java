@@ -15,6 +15,9 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     @Query("SELECT e FROM Estudiante e WHERE lower(e.nombres) LIKE lower(?1)")
     Optional<List<Estudiante>> findByNombre(String nombre);
 
+    @Query("SELECT e FROM Estudiante e WHERE lower(e.correo) LIKE lower(?1)")
+    Optional<Estudiante> findByCorreo(String correo);
+
     @Query("SELECT e FROM Estudiante e JOIN FETCH e.idGrado g WHERE g.id = ?1")
     Optional<Estudiante> findByGradoId(Long id);
 

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.entities.Estudiante;
+import com.mvc.EducationApp.entities.Grado;
 import com.mvc.EducationApp.mappers.EstudianteMapper;
 import com.mvc.EducationApp.repositories.EstudianteRepository;
+import com.mvc.EducationApp.repositories.GradoRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +21,9 @@ public class EstudianteService {
 
     @Autowired
     private EstudianteRepository estudianteRepository;
+
+    @Autowired
+    private GradoRepository gradoRepository;
 
     public List<EstudianteDTO> getAllEstudiantes() {
 
@@ -135,10 +140,14 @@ public class EstudianteService {
 
             }
 
+            Grado grado = gradoRepository.findById(estudianteDTO.getIdGrado()).orElseThrow(() -> new IllegalArgumentException("El grado no existe"));
+
             Estudiante estudianteAActualizar = estudianteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
             Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO);
             
             estudiante.setIdEstudiante(estudianteAActualizar.getIdEstudiante());
+
+            estudiante.setIdGrado(grado);
 
             estudianteAActualizar = estudianteRepository.save(estudiante);
 

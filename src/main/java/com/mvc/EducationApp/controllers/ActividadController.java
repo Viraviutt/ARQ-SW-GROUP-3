@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,18 +26,20 @@ import java.util.HashMap;
 @Slf4j
 @RequestMapping("/api/v1/actividades")
 @SuppressWarnings("null")
+@CrossOrigin(origins = "*")
 public class ActividadController {
     
     @Autowired
     ActividadService actividadServicio;
 
+    
     @GetMapping("")
     public ResponseEntity<HashMap<String, Object>> getActividads() {
 
-        log.info("Obteniendo todos los actividads");
+        log.info("Obteniendo todos los actividades");
         HashMap<String, Object> response = new HashMap<>();
-        List<ActividadDTO> actividads = actividadServicio.getAllActividades();
-        response.put("actividads", actividads);
+        List<ActividadDTO> actividades = actividadServicio.getAllActividades();
+        response.put("actividades", actividades);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

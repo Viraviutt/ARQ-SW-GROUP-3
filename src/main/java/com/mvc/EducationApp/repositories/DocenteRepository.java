@@ -15,4 +15,7 @@ public interface DocenteRepository extends JpaRepository<Docente, Long> {
     @Query("SELECT d FROM Docente d WHERE lower(d.nombres) LIKE lower(?1)")
     Optional<List<Docente>> findByNombre(String nombre);
 
+    @Query("SELECT d FROM Docente d WHERE lower(d.correo) LIKE lower(?1)")
+    Optional<Docente> findByCorreo(String correo);
+
 }

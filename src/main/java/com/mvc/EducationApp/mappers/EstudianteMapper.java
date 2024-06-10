@@ -15,5 +15,6 @@ public interface EstudianteMapper {
     @Mapping(target = "idGrado", source = "idGrado")
     public EstudianteDTO toDTO(Estudiante estudiante);
 
+    @Mapping(target = "idGrado", ignore = true)
     public Estudiante toEntity(EstudianteDTO estudianteDTO);
 }
