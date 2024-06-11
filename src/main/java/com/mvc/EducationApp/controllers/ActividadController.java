@@ -81,11 +81,25 @@ public class ActividadController {
     }
 
     @GetMapping("/materia/{materia}/{grado}")
-    public ResponseEntity<HashMap<String, Object>> getTemasByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("materia") Long grado) {
+    public ResponseEntity<HashMap<String, Object>> getActividadesByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("materia") Long grado) {
 
         log.info("Obteniendo actividad por materia: " + materia + " y grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
         List<ActividadDTO> actividades = actividadServicio.getActividadByMateriasAndGradoId(materia, grado);
+        response.put("actividades", actividades);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/materia/prom/{grado}/")
+    public ResponseEntity<HashMap<String, Object>> getPromedioDeNotas(@PathVariable("materia") Long grado) {
+
+        log.info("Obteniendo el promedio de la materia por id grado: " + grado);
+        HashMap<String, Object> response = new HashMap<>();
+
+        List<ActividadDTO> actividades = actividadServicio.getPromedioNotas(grado);
+
+
         response.put("actividades", actividades);
 
         return new ResponseEntity<>(response, HttpStatus.OK);

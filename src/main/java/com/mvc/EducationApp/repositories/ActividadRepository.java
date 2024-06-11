@@ -24,4 +24,7 @@ public interface ActividadRepository extends JpaRepository<Actividad, Long> {
     @Query("SELECT a FROM Actividad a WHERE a.idMateria.idMateria = ?1 AND a.idGrado.idGrado = ?2")
     Optional<List<Actividad>> findByMateriasAndGradoId(Long materia, Long grado);
 
+    @Query("SELECT a.idMateria.nombre, AVG(CAST(a.nota AS INTEGER)) AS promedio_notas FROM Actividad a WHERE a.idGrado = ?1 GROUP BY a.idMateria.nombre")
+    Optional<List<Actividad>> promedioNotas(Long grado);
+
  }

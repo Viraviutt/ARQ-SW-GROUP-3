@@ -88,6 +88,22 @@ public class ActividadService {
         return List.of();
     }
 
+    public List<ActividadDTO> getPromedioNotas(Long grado) {
+
+        try {
+
+            List<Actividad> actividades = actividadRepository.promedioNotas(grado).orElse(null);
+            return actividades.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+
+        } catch (Exception e) {
+
+            log.error("Error obteniendo actividad por nombre", e);
+
+        }
+
+        return List.of();
+    }
+
     public List<ActividadDTO> getActividadByMateriasAndGradoId(Long materia, Long grado) {
 
         try {
