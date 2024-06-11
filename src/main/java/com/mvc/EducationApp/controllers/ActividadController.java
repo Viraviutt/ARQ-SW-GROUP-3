@@ -62,10 +62,28 @@ public class ActividadController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/grado/{id}")
+    public ResponseEntity<HashMap<String, Object>> getActividadByIdGrado(@PathVariable("id") Long id) {
+
+        log.info("Obteniendo actividad por id de grado: " + id);
+        HashMap<String, Object> response = new HashMap<>();
+        List<ActividadDTO> actividad = actividadServicio.getActividadByGrado(id);
+
+        if (actividad == null) {
+
+            response.put("error", "El actividad no ha sido encontrando");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+
+        }
+
+        response.put("actividad", actividad);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @GetMapping("/materia/{materia}/{grado}")
     public ResponseEntity<HashMap<String, Object>> getTemasByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("materia") Long grado) {
 
-        log.info("Obteniendo actividad por materia: " + materia + "y grado: " + grado);
+        log.info("Obteniendo actividad por materia: " + materia + " y grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
         List<ActividadDTO> actividades = actividadServicio.getActividadByMateriasAndGradoId(materia, grado);
         response.put("actividades", actividades);
