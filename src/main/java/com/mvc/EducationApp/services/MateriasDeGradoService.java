@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.MateriasDeGradoDTO;
+import com.mvc.EducationApp.entities.Estudiante;
 import com.mvc.EducationApp.entities.MateriasDeGrado;
 import com.mvc.EducationApp.mappers.MateriasDeGradoMapper;
+import com.mvc.EducationApp.repositories.EstudianteRepository;
 import com.mvc.EducationApp.repositories.MateriasDeGradoRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,9 @@ public class MateriasDeGradoService {
 
     @Autowired
     private MateriasDeGradoRepository materiasDeGradoRepository;
+
+    @Autowired
+    private EstudianteRepository estudianteRepository;
 
     public List<MateriasDeGradoDTO> getAllMateriasDeGrados() {
 
@@ -51,6 +56,28 @@ public class MateriasDeGradoService {
         }
 
         return null;
+    }
+
+    public List<MateriasDeGradoDTO> getMateriasDeGradoByStudentId(Long id) {
+
+        try {
+
+            Estudiante estudiante = estudianteRepository.findById(id).orElse(null);
+
+            if (estudiante != null) {
+                List<MateriasDeGrado> materiasDeGrados = materiasDeGradoRepository.findByMateriasDeGradoIdGrado(estudiante.getIdGrado().getIdGrado()).orElse(null);
+                return materiasDeGrados.stream().map(MateriasDeGradoMapper.INSTANCE::toDTO).toList();
+            }
+
+            throw new IllegalArgumentException("El estudiante no existe");
+
+        } catch (Exception e) {
+
+            log.error("Error obteniendo materiasDeGrado por id",e);
+
+        }
+
+        return List.of();
     }
 /* 
     public List<MateriasDeGradoDTO> getMateriasDeGradoByNombre(String nombre) {

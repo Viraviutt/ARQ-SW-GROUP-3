@@ -60,6 +60,25 @@ public class MateriasDeGradoController {
         response.put("materiasDeGrado", materiasDeGrado);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/estudiantes/{id}")
+    public ResponseEntity<HashMap<String, Object>> getMateriasDeGradoByIdEstudiantes(@PathVariable("id") Long id) {
+
+        log.info("Obteniendo materiasDeGrado por id: " + id);
+        HashMap<String, Object> response = new HashMap<>();
+        List<MateriasDeGradoDTO> materiasDeGrado = materiasDeGradoServicio.getMateriasDeGradoByStudentId(id);
+
+        if (materiasDeGrado == null) {
+
+            response.put("error", "El materiasDeGrado no ha sido encontrando");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+
+        }
+
+        response.put("materiasDeGrado", materiasDeGrado);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+    
 /* 
     @GetMapping("/nombre/{nombre}")
     public ResponseEntity<HashMap<String, Object>> getMateriasDeGradosByNombre(@PathVariable("nombre") String nombre) {
