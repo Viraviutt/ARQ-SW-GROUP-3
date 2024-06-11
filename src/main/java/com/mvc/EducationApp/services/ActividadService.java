@@ -1,16 +1,14 @@
 package com.mvc.EducationApp.services;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.ActividadDTO;
-import com.mvc.EducationApp.dto.TemaDTO;
 import com.mvc.EducationApp.entities.Actividad;
-import com.mvc.EducationApp.entities.Tema;
 import com.mvc.EducationApp.mappers.ActividadMapper;
-import com.mvc.EducationApp.mappers.TemaMapper;
 import com.mvc.EducationApp.repositories.ActividadRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -88,20 +86,50 @@ public class ActividadService {
         return List.of();
     }
 
-    public List<ActividadDTO> getPromedioNotas(Long grado) {
+    public HashMap<String, Float> getPromedioNotas(Long grado) {
 
         try {
 
-            List<Actividad> actividades = actividadRepository.promedioNotas(grado).orElse(null);
-            return actividades.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+            HashMap<String, Float> agrupacionPromedio = new HashMap<>();
+
+            List<Actividad> actividades = actividadRepository.findByGrado(grado).orElse(null);
+
+            HashMap<String, Integer> agrupacionCounter = new HashMap<>();
+
+            for (Actividad actividad : actividades) {
+                if (agrupacionPromedio.containsKey(actividad.getIdMateria().getNombre())) {
+
+                    agrupacionPromedio.put(actividad.getIdMateria().getNombre(), agrupacionPromedio.get(actividad.getIdMateria().getNombre()) + Float.parseFloat(actividad.getNota()));
+                    agrupacionCounter.put(actividad.getIdMateria().getNombre(), agrupacionCounter.get(actividad.getIdMateria().getNombre()) + 1);
+
+                }else{
+
+                    agrupacionCounter.put(actividad.getIdMateria().getNombre(), 0);
+                    agrupacionPromedio.put(actividad.getIdMateria().getNombre(), 0F);
+                    agrupacionPromedio.put(actividad.getIdMateria().getNombre(), agrupacionPromedio.get(actividad.getIdMateria().getNombre()) + Float.parseFloat(actividad.getNota()));
+                    agrupacionCounter.put(actividad.getIdMateria().getNombre(), agrupacionCounter.get(actividad.getIdMateria().getNombre()) + 1);
+
+                }
+            }
+
+            HashMap<String, Float> promedio = new HashMap<>();
+
+            for (String key : agrupacionPromedio.keySet()) {
+
+                promedio.put(key, agrupacionPromedio.get(key) / agrupacionCounter.get(key));
+                
+            }
+
+            
+            return promedio;
 
         } catch (Exception e) {
 
-            log.error("Error obteniendo actividad por nombre", e);
+            log.error("Error obteniendo promedio de notas.", e);
 
         }
 
-        return List.of();
+        return null;
     }
 
     public List<ActividadDTO> getActividadByMateriasAndGradoId(Long materia, Long grado) {

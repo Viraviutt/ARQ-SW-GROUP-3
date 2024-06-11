@@ -91,13 +91,13 @@ public class ActividadController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/materia/prom/{grado}/")
-    public ResponseEntity<HashMap<String, Object>> getPromedioDeNotas(@PathVariable("materia") Long grado) {
+    @GetMapping("/materia/prom/{grado}")
+    public ResponseEntity<HashMap<String, Object>> getPromedioDeNotas(@PathVariable("grado") Long grado) {
 
         log.info("Obteniendo el promedio de la materia por id grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
 
-        List<ActividadDTO> actividades = actividadServicio.getPromedioNotas(grado);
+        HashMap<String, Float> actividades = actividadServicio.getPromedioNotas(grado);
 
 
         response.put("actividades", actividades);
