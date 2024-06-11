@@ -34,4 +34,8 @@ public class Tema {
     @ManyToOne
     @JoinColumn(name = "idMateria", referencedColumnName = "idMateria")
     private Materia idMateria;
+
+    @ManyToOne
+    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
+    private Grado idGrado;
 }

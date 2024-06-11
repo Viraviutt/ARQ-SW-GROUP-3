@@ -63,15 +63,11 @@ public class TemaService {
         return null;
     }
  
-    public List<TemaDTO> getTemaByMateriasDeGrado(Long materia, Long grado) {
+    public List<TemaDTO> getTemaByMateriasAndGradoId(Long materia, Long grado) {
 
         try {
 
-            MateriasDeGrado materiasDeGrado = materiasDeGradoRepository.findById(materia).orElse(null);
-
-            Grado grados = gradoRepository.findById(grado).orElse(null);
-
-            List<Tema> temas = temaRepository.findByMateriasDeGrado(materiasDeGrado.getIdMateria().getIdMateria(), grados.getIdGrado()).orElse(null);
+            List<Tema> temas = temaRepository.findByMateriasAndGradoId(materia, grado).orElse(null);
             return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
 
         } catch (Exception e){

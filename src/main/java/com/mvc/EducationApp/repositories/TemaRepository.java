@@ -17,7 +17,7 @@ public interface TemaRepository extends JpaRepository<Tema, Long> {
     Optional<Tema> findByNombre(String email);
 
     /** find by nombre de materia */
-    @Query("SELECT t FROM Tema t JOIN FETCH t.idMateria m JOIN FETCH t.idGrado g WHERE m.idMateria = ?1 AND g.idGrado = ?2")
-    Optional<List<Tema>> findByMateriasDeGrado(Long materia, Long grado);
+    @Query("SELECT t FROM Tema t WHERE t.idMateria.idMateria = ?1 AND t.idGrado.idGrado = ?2")
+    Optional<List<Tema>> findByMateriasAndGradoId(Long materia, Long grado);
 
 }

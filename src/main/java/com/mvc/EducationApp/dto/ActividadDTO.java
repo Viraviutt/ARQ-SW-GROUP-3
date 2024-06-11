@@ -1,5 +1,6 @@
 package com.mvc.EducationApp.dto;
 
+import com.mvc.EducationApp.entities.Grado;
 import com.mvc.EducationApp.entities.Materia;
 
 import lombok.Data;
@@ -18,4 +19,6 @@ public class ActividadDTO {
     private String nota;
   
     private Materia idMateria;
+
+    private Grado idGrado;
 }

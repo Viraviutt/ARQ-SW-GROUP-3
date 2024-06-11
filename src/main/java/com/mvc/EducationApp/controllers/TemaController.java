@@ -66,7 +66,7 @@ public class TemaController {
 
         log.info("Obteniendo tema por materia: " + materia + "y grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
-        List<TemaDTO> temas = temaServicio.getTemaByMateriasDeGrado(materia, grado);
+        List<TemaDTO> temas = temaServicio.getTemaByMateriasAndGradoId(materia, grado);
         response.put("temas", temas);
 
         return new ResponseEntity<>(response, HttpStatus.OK);

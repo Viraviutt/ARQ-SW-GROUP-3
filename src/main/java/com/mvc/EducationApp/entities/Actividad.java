@@ -41,4 +41,8 @@ public class Actividad {
     @JoinColumn(name = "idMateria", referencedColumnName = "idMateria")
     private Materia idMateria;
 
+    @ManyToOne
+    @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
+    private Grado idGrado;
+
 }
