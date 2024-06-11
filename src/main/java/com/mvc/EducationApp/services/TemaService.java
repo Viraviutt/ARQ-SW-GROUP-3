@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mvc.EducationApp.dto.ActividadDTO;
 import com.mvc.EducationApp.dto.TemaDTO;
+import com.mvc.EducationApp.entities.Actividad;
 import com.mvc.EducationApp.entities.Grado;
 import com.mvc.EducationApp.entities.MateriasDeGrado;
 import com.mvc.EducationApp.entities.Tema;
+import com.mvc.EducationApp.mappers.ActividadMapper;
 import com.mvc.EducationApp.mappers.TemaMapper;
 import com.mvc.EducationApp.repositories.GradoRepository;
 import com.mvc.EducationApp.repositories.MateriasDeGradoRepository;
@@ -56,13 +59,29 @@ public class TemaService {
 
         } catch (Exception e) {
 
-            log.error("Error obteniendo tema por id",e);
+            log.error("Error obteniendo tema por id", e);
 
         }
 
         return null;
     }
- 
+
+    public List<TemaDTO> getTemaByGrado(Long grado) {
+
+        try {
+
+            List<Tema> temas = temaRepository.findByGrado(grado).orElse(null);
+            return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
+
+        } catch (Exception e) {
+
+            log.error("Error obteniendo actividad por nombre", e);
+
+        }
+
+        return List.of();
+    }
+
     public List<TemaDTO> getTemaByMateriasAndGradoId(Long materia, Long grado) {
 
         try {
@@ -70,54 +89,54 @@ public class TemaService {
             List<Tema> temas = temaRepository.findByMateriasAndGradoId(materia, grado).orElse(null);
             return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             log.error("Error obteniendo tema por nombre", e);
 
         }
 
-        return List.of();    
-    }
-/*
-    public List<TemaDTO> getTemaByCorreo(String correo) {
-
-        try {
-
-            List<Tema> temas = temaRepository.findByCorreo(correo).orElse(null);
-            return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo tema por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<TemaDTO> getTemaByDireccion(String direccion) {
-
-        try{
-
-            List<Tema> temas = temaRepository.findByDireccion(direccion).orElse(null);
-            return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo tema por direccion");
-
-        }
-
         return List.of();
     }
-*/
-    /*Create, update, delete */
-    
-    public TemaDTO createTema(TemaDTO temaDTO){
+    /*
+     * public List<TemaDTO> getTemaByCorreo(String correo) {
+     * 
+     * try {
+     * 
+     * List<Tema> temas = temaRepository.findByCorreo(correo).orElse(null);
+     * return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
+     * 
+     * } catch (Exception e) {
+     * 
+     * log.error("Error obteniendo tema por email", e);
+     * 
+     * }
+     * 
+     * return null;
+     * }
+     * 
+     * public List<TemaDTO> getTemaByDireccion(String direccion) {
+     * 
+     * try{
+     * 
+     * List<Tema> temas = temaRepository.findByDireccion(direccion).orElse(null);
+     * return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
+     * 
+     * } catch (Exception e) {
+     * 
+     * log.error("Error obteniendo tema por direccion");
+     * 
+     * }
+     * 
+     * return List.of();
+     * }
+     */
+    /* Create, update, delete */
+
+    public TemaDTO createTema(TemaDTO temaDTO) {
 
         try {
 
-            if(temaDTO.getIdTema() != null) {
+            if (temaDTO.getIdTema() != null) {
                 throw new IllegalArgumentException("La id se generará mediante la DB");
             }
 
@@ -145,9 +164,10 @@ public class TemaService {
 
             }
 
-            Tema temaAActualizar = temaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException ("El tema no existe"));
+            Tema temaAActualizar = temaRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("El tema no existe"));
             Tema tema = TemaMapper.INSTANCE.toEntity(temaDTO);
-            
+
             tema.setIdTema(temaAActualizar.getIdTema());
 
             temaAActualizar = temaRepository.save(tema);
@@ -158,13 +178,12 @@ public class TemaService {
         } catch (Exception e) {
 
             log.error("Error actualizando al tema");
-            
+
         }
 
         return null;
     }
 
-    
     public boolean deleteTema(Long id) {
 
         try {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mvc.EducationApp.dto.ActividadDTO;
 import com.mvc.EducationApp.dto.TemaDTO;
 import com.mvc.EducationApp.services.TemaService;
 
@@ -58,6 +59,24 @@ public class TemaController {
         }
 
         response.put("tema", tema);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/grado/{id}")
+    public ResponseEntity<HashMap<String, Object>> getTemaByIdGrado(@PathVariable("id") Long id) {
+
+        log.info("Obteniendo temas por id de grado: " + id);
+        HashMap<String, Object> response = new HashMap<>();
+        List<TemaDTO> temas = temaServicio.getTemaByGrado(id);
+
+        if (temas == null) {
+
+            response.put("error", "El actividad no ha sido encontrando");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+
+        }
+
+        response.put("temas", temas);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
  
