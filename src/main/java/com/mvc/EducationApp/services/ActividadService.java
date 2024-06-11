@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.ActividadDTO;
+import com.mvc.EducationApp.dto.TemaDTO;
 import com.mvc.EducationApp.entities.Actividad;
+import com.mvc.EducationApp.entities.Tema;
 import com.mvc.EducationApp.mappers.ActividadMapper;
+import com.mvc.EducationApp.mappers.TemaMapper;
 import com.mvc.EducationApp.repositories.ActividadRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +49,7 @@ public class ActividadService {
 
         } catch (Exception e) {
 
-            log.error("Error obteniendo actividad por id",e);
+            log.error("Error obteniendo actividad por id", e);
 
         }
 
@@ -60,54 +63,72 @@ public class ActividadService {
             List<Actividad> actividades = actividadRepository.findByMateria(materia).orElse(null);
             return actividades.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             log.error("Error obteniendo actividad por nombre", e);
 
         }
 
-        return List.of();    
+        return List.of();
     }
-/*
-    public List<ActividadDTO> getActividadByCorreo(String correo) {
+
+    public List<ActividadDTO> getActividadByMateriasAndGradoId(Long materia, Long grado) {
 
         try {
 
-            List<Actividad> actividads = actividadRepository.findByCorreo(correo).orElse(null);
-            return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+            List<Actividad> actividades = actividadRepository.findByMateriasAndGradoId(materia, grado).orElse(null);
+            return actividades.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
 
         } catch (Exception e) {
 
-            log.error("Error obteniendo actividad por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<ActividadDTO> getActividadByDireccion(String direccion) {
-
-        try{
-
-            List<Actividad> actividads = actividadRepository.findByDireccion(direccion).orElse(null);
-            return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo actividad por direccion");
+            log.error("Error obteniendo tema por nombre", e);
 
         }
 
         return List.of();
     }
-*/
-    /*Create, update, delete */
-    
-    public ActividadDTO createActividad(ActividadDTO actividadDTO){
+    /*
+     * public List<ActividadDTO> getActividadByCorreo(String correo) {
+     * 
+     * try {
+     * 
+     * List<Actividad> actividads =
+     * actividadRepository.findByCorreo(correo).orElse(null);
+     * return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+     * 
+     * } catch (Exception e) {
+     * 
+     * log.error("Error obteniendo actividad por email", e);
+     * 
+     * }
+     * 
+     * return null;
+     * }
+     * 
+     * public List<ActividadDTO> getActividadByDireccion(String direccion) {
+     * 
+     * try{
+     * 
+     * List<Actividad> actividads =
+     * actividadRepository.findByDireccion(direccion).orElse(null);
+     * return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+     * 
+     * } catch (Exception e) {
+     * 
+     * log.error("Error obteniendo actividad por direccion");
+     * 
+     * }
+     * 
+     * return List.of();
+     * }
+     */
+    /* Create, update, delete */
+
+    public ActividadDTO createActividad(ActividadDTO actividadDTO) {
 
         try {
 
-            if(actividadDTO.getIdActividad() != null) {
+            if (actividadDTO.getIdActividad() != null) {
                 throw new IllegalArgumentException("La id se generará mediante la DB");
             }
 
@@ -135,9 +156,10 @@ public class ActividadService {
 
             }
 
-            Actividad actividadAActualizar = actividadRepository.findById(id).orElseThrow(() -> new IllegalArgumentException ("El actividad no existe"));
+            Actividad actividadAActualizar = actividadRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("El actividad no existe"));
             Actividad actividad = ActividadMapper.INSTANCE.toEntity(actividadDTO);
-            
+
             actividad.setIdActividad(actividadAActualizar.getIdActividad());
 
             actividadAActualizar = actividadRepository.save(actividad);
@@ -148,13 +170,12 @@ public class ActividadService {
         } catch (Exception e) {
 
             log.error("Error actualizando al actividad");
-            
+
         }
 
         return null;
     }
 
-    
     public boolean deleteActividad(Long id) {
 
         try {

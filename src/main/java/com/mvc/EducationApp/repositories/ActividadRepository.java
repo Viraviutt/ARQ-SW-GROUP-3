@@ -18,4 +18,7 @@ public interface ActividadRepository extends JpaRepository<Actividad, Long> {
     @Query("SELECT a FROM Actividad a JOIN FETCH a.idMateria m WHERE lower(m.nombre) LIKE lower(?1)")
     Optional<List<Actividad>> findByMateria(String materia);
 
+    @Query("SELECT a FROM Actividad a WHERE a.idMateria.idMateria = ?1 AND a.idGrado.idGrado = ?2")
+    Optional<List<Actividad>> findByMateriasAndGradoId(Long materia, Long grado);
+
  }
