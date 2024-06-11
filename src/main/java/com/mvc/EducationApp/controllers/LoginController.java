@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mvc.EducationApp.entities.Estudiante;
 import com.mvc.EducationApp.dto.EstudianteDTO;
+import com.mvc.EducationApp.dto.FormLogin;
 import com.mvc.EducationApp.entities.Administrador;
 import com.mvc.EducationApp.entities.Docente;
 import com.mvc.EducationApp.repositories.AdminRepository;
@@ -34,7 +35,7 @@ public class LoginController {
     private AdminRepository adminRepository;
 
     @PostMapping("")
-    public Boolean verifyLogin(@RequestBody FormLogin formLogin){
+    public Long verifyLogin(@RequestBody FormLogin formLogin){
 
         log.info("Verificando el tipo de usuario: " + formLogin.getTipo());
 
@@ -47,15 +48,15 @@ public class LoginController {
                     Estudiante estudiante = estudianteRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
 
                     if (estudiante.getClave().equals(formLogin.getClave())) {
-                        return true;
+                        return estudiante.getIdEstudiante();
                     }
 
-                    return false;
+                    return null;
 
                 } catch (Exception e) {
 
                     log.error("Error encontrando al estudiante", e);
-                    return false;
+                    return null;
 
                 }
 
@@ -66,15 +67,15 @@ public class LoginController {
                     Docente docente = docenteRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El docente no existe"));
 
                     if (docente.getClave().equals(formLogin.getClave())) {
-                        return true;
+                        return docente.getIdDocente();
                     }
 
-                    return false;
+                    return null;
 
                 } catch (Exception e) {
 
                     log.error("Error encontrando al docente", e);
-                    return false;
+                    return null;
 
                 }
 
@@ -85,20 +86,20 @@ public class LoginController {
                     Administrador admin = adminRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El admin no existe"));
 
                     if (admin.getClave().equals(formLogin.getClave())) {
-                        return true;
+                        return admin.getIdAdmin();
                     }
 
-                    return false;
+                    return null;
 
                 } catch (Exception e) {
 
                     log.error("Error encontrando al docente", e);
-                    return false;
+                    return null;
 
                 }
 
             default:
-                return false;
+                return null;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.mvc.EducationApp.controllers;
+package com.mvc.EducationApp.dto;
 
 import lombok.Data;
 
