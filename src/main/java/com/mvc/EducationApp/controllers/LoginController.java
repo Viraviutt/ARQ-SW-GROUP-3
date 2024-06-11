@@ -34,7 +34,7 @@ public class LoginController {
     private AdminRepository adminRepository;
 
     @PostMapping("")
-    public Boolean verifyLogin(@RequestBody formLogin formLogin){
+    public Boolean verifyLogin(@RequestBody FormLogin formLogin){
 
         log.info("Verificando el tipo de usuario: " + formLogin.getTipo());
 
