@@ -2,7 +2,7 @@ package com.mvc.EducationApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,11 +32,8 @@ public class LoginController {
     @Autowired
     private AdminRepository adminRepository;
 
-    @GetMapping("")
-    public Boolean verifyLogin(
-            @RequestParam("correo") String correo,
-            @RequestParam("tipo") String tipo
-    ){
+    @PostMapping("")
+    public Boolean verifyLogin(String correo, String tipo, String clave){
 
         log.info("Verificando el tipo de usuario: " + tipo);
 
@@ -48,11 +45,11 @@ public class LoginController {
 
                     Estudiante estudiante = estudianteRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
 
-                    if (estudiante == null) {
-                        return false;
+                    if (estudiante.getClave().equals(clave)) {
+                        return true;
                     }
 
-                    return true;
+                    return false;
 
                 } catch (Exception e) {
 
@@ -67,11 +64,11 @@ public class LoginController {
 
                     Docente docente = docenteRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El docente no existe"));
 
-                    if (docente == null) {
-                        return false;
+                    if (docente.getClave().equals(clave)) {
+                        return true;
                     }
 
-                    return true;
+                    return false;
 
                 } catch (Exception e) {
 
@@ -86,11 +83,11 @@ public class LoginController {
 
                     Administrador admin = adminRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El admin no existe"));
 
-                    if (admin == null) {
-                        return false;
+                    if (admin.getClave().equals(clave)) {
+                        return true;
                     }
 
-                    return true;
+                    return false;
 
                 } catch (Exception e) {
 

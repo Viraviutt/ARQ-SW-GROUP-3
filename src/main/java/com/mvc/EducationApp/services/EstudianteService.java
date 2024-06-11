@@ -116,7 +116,7 @@ public class EstudianteService {
                 throw new IllegalArgumentException("La id se generará mediante la DB");
             }
 
-            Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO);
+            Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO, estudianteRepository, gradoRepository);
             Estudiante savedEstudiante = estudianteRepository.save(estudiante);
 
             return EstudianteMapper.INSTANCE.toDTO(savedEstudiante);
@@ -140,14 +140,13 @@ public class EstudianteService {
 
             }
 
-            Grado grado = gradoRepository.findById(estudianteDTO.getIdGrado()).orElseThrow(() -> new IllegalArgumentException("El grado no existe"));
-
             Estudiante estudianteAActualizar = estudianteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
-            Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO);
+
+            Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO, estudianteRepository, gradoRepository);
+
+            
             
             estudiante.setIdEstudiante(estudianteAActualizar.getIdEstudiante());
-
-            estudiante.setIdGrado(grado);
 
             estudianteAActualizar = estudianteRepository.save(estudiante);
 

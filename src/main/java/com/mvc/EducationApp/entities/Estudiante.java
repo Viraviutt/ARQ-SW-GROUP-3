@@ -44,6 +44,29 @@ public class Estudiante {
     @JoinColumn(name = "idGrado", referencedColumnName = "idGrado")
     private Grado idGrado;
 
+    public void actualizarSoloSi(Estudiante estudianteActualizado) {
+        if (estudianteActualizado.getNombres() != null && this.getNombres() != estudianteActualizado.getNombres()) {
+            this.setNombres(estudianteActualizado.getNombres());
+        }
 
+        if (estudianteActualizado.getApellidos() != null && this.getApellidos() != estudianteActualizado.getApellidos()) {
+            this.setApellidos(estudianteActualizado.getApellidos());
+        }
 
+        if (estudianteActualizado.getEstado() != null && this.getEstado() != estudianteActualizado.getEstado()) {
+            this.setEstado(estudianteActualizado.getEstado());
+        }
+
+        if (estudianteActualizado.getCorreo() != null && this.getCorreo() != estudianteActualizado.getCorreo()) {
+            this.setCorreo(estudianteActualizado.getCorreo());
+        }
+
+        if (estudianteActualizado.getClave() != null && this.getClave() != estudianteActualizado.getClave()) {
+            this.setClave(estudianteActualizado.getClave());
+        }
+
+        if (estudianteActualizado.getIdGrado() != null && this.getIdGrado() != estudianteActualizado.getIdGrado()) {
+            this.setIdGrado(estudianteActualizado.getIdGrado());
+        }
+    }
 }
