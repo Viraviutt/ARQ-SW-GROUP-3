@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mvc.EducationApp.dto.ActividadDTO;
-import com.mvc.EducationApp.dto.TemaDTO;
 import com.mvc.EducationApp.services.ActividadService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -104,53 +103,8 @@ public class ActividadController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
-    /*
-     * @GetMapping("/nombre/{nombre}")
-     * public ResponseEntity<HashMap<String, Object>>
-     * getActividadsByNombre(@PathVariable("nombre") String nombre) {
-     * 
-     * log.info("Obteniendo actividad por nombre: " + nombre);
-     * HashMap<String, Object> response = new HashMap<>();
-     * List<ActividadDTO> actividads =
-     * actividadServicio.getActividadByNombre(nombre);
-     * response.put("actividads", actividads);
-     * 
-     * return new ResponseEntity<>(response, HttpStatus.OK);
-     * }
-     * 
-     * @GetMapping("/correo/{correo}")
-     * public ResponseEntity<HashMap<String, Object>>
-     * getActividadsByCorreo(@PathVariable("correo") String correo) {
-     * 
-     * log.info("Obteniendo actividad por correo: " + correo);
-     * HashMap<String, Object> response = new HashMap<>();
-     * List<ActividadDTO> actividad =
-     * actividadServicio.getActividadByCorreo(correo);
-     * 
-     * if (actividad == null) {
-     * 
-     * response.put("error", "El actividad no ha sido encontrado");
-     * return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-     * }
-     * 
-     * response.put("actividad", actividad);
-     * return new ResponseEntity<>(response, HttpStatus.OK);
-     * }
-     * 
-     * @GetMapping("/direccion/{direccion}")
-     * public ResponseEntity<HashMap<String, Object>>
-     * getActividadsByDireccion(@PathVariable("direccion") String direccion) {
-     * 
-     * log.info("Obteniendo actividad por direccion: " + direccion);
-     * HashMap<String, Object> response = new HashMap<>();
-     * List<ActividadDTO> actividads =
-     * actividadServicio.getActividadByDireccion(direccion);
-     * response.put("actividads", actividads);
-     * 
-     * return new ResponseEntity<>(response, HttpStatus.OK);
-     * }
-     */
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createActividad(@RequestBody ActividadDTO actividadDTO) {
 

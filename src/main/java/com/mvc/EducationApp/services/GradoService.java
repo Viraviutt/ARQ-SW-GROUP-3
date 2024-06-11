@@ -68,39 +68,7 @@ public class GradoService {
 
         return List.of();
     }
-/* 
-    public List<GradoDTO> getGradoByCorreo(String correo) {
-
-        try {
-
-            List<Grado> grados = gradoRepository.findByCorreo(correo).orElse(null);
-            return grados.stream().map(GradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo grado por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<GradoDTO> getGradoByDireccion(String direccion) {
-
-        try {
-
-            List<Grado> grados = gradoRepository.findByDireccion(direccion).orElse(null);
-            return grados.stream().map(GradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo grado por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /* Create, update, delete */
 
     public GradoDTO createGrado(GradoDTO gradoDTO) {

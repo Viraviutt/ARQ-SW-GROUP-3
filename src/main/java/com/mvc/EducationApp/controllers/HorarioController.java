@@ -60,46 +60,8 @@ public class HorarioController {
         response.put("horario", horario);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getHorariosByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo horario por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<HorarioDTO> horarios = horarioServicio.getHorarioByNombre(nombre);
-        response.put("horarios", horarios);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getHorariosByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo horario por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<HorarioDTO> horario = horarioServicio.getHorarioByCorreo(correo);
-        
-        if (horario == null) {
-
-            response.put("error", "El horario no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("horario", horario);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getHorariosByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo horario por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<HorarioDTO> horarios = horarioServicio.getHorarioByDireccion(direccion);
-        response.put("horarios", horarios);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createHorario(@RequestBody HorarioDTO horarioDTO) {
 

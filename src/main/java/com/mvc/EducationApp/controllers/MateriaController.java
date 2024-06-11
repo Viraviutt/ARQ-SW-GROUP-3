@@ -60,46 +60,8 @@ public class MateriaController {
         response.put("materia", materia);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo materia por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriaDTO> materias = materiaServicio.getMateriaByNombre(nombre);
-        response.put("materias", materias);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo materia por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriaDTO> materia = materiaServicio.getMateriaByCorreo(correo);
-        
-        if (materia == null) {
-
-            response.put("error", "El materia no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("materia", materia);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo materia por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriaDTO> materias = materiaServicio.getMateriaByDireccion(direccion);
-        response.put("materias", materias);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createMateria(@RequestBody MateriaDTO materiaDTO) {
 

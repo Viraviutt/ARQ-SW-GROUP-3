@@ -52,55 +52,7 @@ public class HorarioService {
 
         return null;
     }
-/* 
-    public List<HorarioDTO> getHorarioByNombre(String nombre) {
-
-        try {
-
-            List<Horario> horarios = horarioRepository.findByNombre(nombre).orElse(null);
-            return horarios.stream().map(HorarioMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo horario por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-    public List<HorarioDTO> getHorarioByCorreo(String correo) {
-
-        try {
-
-            List<Horario> horarios = horarioRepository.findByCorreo(correo).orElse(null);
-            return horarios.stream().map(HorarioMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo horario por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<HorarioDTO> getHorarioByDireccion(String direccion) {
-
-        try{
-
-            List<Horario> horarios = horarioRepository.findByDireccion(direccion).orElse(null);
-            return horarios.stream().map(HorarioMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo horario por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public HorarioDTO createHorario(HorarioDTO horarioDTO){

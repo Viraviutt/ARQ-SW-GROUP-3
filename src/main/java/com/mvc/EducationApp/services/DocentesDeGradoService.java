@@ -60,56 +60,7 @@ public class DocentesDeGradoService {
 
         return List.of();
     }
-/*
-    public List<DocentesDeGradoDTO> getDocentesDeGradoByNombre(String nombre) {
-
-        try {
-
-            List<DocentesDeGrado> docentesDeGrados = docentesDeGradoRepository.findByNombre(nombre).orElse(null);
-            return docentesDeGrados.stream().map(DocentesDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo docentesDeGrado por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-
-    public List<DocentesDeGradoDTO> getDocentesDeGradoByCorreo(String correo) {
-
-        try {
-
-            List<DocentesDeGrado> docentesDeGrados = docentesDeGradoRepository.findByCorreo(correo).orElse(null);
-            return docentesDeGrados.stream().map(DocentesDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo docentesDeGrado por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<DocentesDeGradoDTO> getDocentesDeGradoByDireccion(String direccion) {
-
-        try{
-
-            List<DocentesDeGrado> docentesDeGrados = docentesDeGradoRepository.findByDireccion(direccion).orElse(null);
-            return docentesDeGrados.stream().map(DocentesDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo docentesDeGrado por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public DocentesDeGradoDTO createDocentesDeGrado(DocentesDeGradoDTO docentesDeGradoDTO){

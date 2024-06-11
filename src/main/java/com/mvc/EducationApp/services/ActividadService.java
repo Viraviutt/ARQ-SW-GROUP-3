@@ -147,41 +147,7 @@ public class ActividadService {
 
         return List.of();
     }
-    /*
-     * public List<ActividadDTO> getActividadByCorreo(String correo) {
-     * 
-     * try {
-     * 
-     * List<Actividad> actividads =
-     * actividadRepository.findByCorreo(correo).orElse(null);
-     * return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
-     * 
-     * } catch (Exception e) {
-     * 
-     * log.error("Error obteniendo actividad por email", e);
-     * 
-     * }
-     * 
-     * return null;
-     * }
-     * 
-     * public List<ActividadDTO> getActividadByDireccion(String direccion) {
-     * 
-     * try{
-     * 
-     * List<Actividad> actividads =
-     * actividadRepository.findByDireccion(direccion).orElse(null);
-     * return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
-     * 
-     * } catch (Exception e) {
-     * 
-     * log.error("Error obteniendo actividad por direccion");
-     * 
-     * }
-     * 
-     * return List.of();
-     * }
-     */
+    
     /* Create, update, delete */
 
     public ActividadDTO createActividad(ActividadDTO actividadDTO) {

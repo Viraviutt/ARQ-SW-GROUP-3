@@ -79,46 +79,7 @@ public class MateriasDeGradoController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasDeGradosByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo materiasDeGrado por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriasDeGradoDTO> materiasDeGrados = materiasDeGradoServicio.getMateriasDeGradoByNombre(nombre);
-        response.put("materiasDeGrados", materiasDeGrados);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasDeGradosByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo materiasDeGrado por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriasDeGradoDTO> materiasDeGrado = materiasDeGradoServicio.getMateriasDeGradoByCorreo(correo);
-        
-        if (materiasDeGrado == null) {
-
-            response.put("error", "El materiasDeGrado no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("materiasDeGrado", materiasDeGrado);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getMateriasDeGradosByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo materiasDeGrado por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<MateriasDeGradoDTO> materiasDeGrados = materiasDeGradoServicio.getMateriasDeGradoByDireccion(direccion);
-        response.put("materiasDeGrados", materiasDeGrados);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createMateriasDeGrado(@RequestBody MateriasDeGradoDTO materiasDeGradoDTO) {
 

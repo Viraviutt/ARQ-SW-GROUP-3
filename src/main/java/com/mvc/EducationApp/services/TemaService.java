@@ -5,16 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mvc.EducationApp.dto.ActividadDTO;
 import com.mvc.EducationApp.dto.TemaDTO;
-import com.mvc.EducationApp.entities.Actividad;
-import com.mvc.EducationApp.entities.Grado;
-import com.mvc.EducationApp.entities.MateriasDeGrado;
 import com.mvc.EducationApp.entities.Tema;
-import com.mvc.EducationApp.mappers.ActividadMapper;
 import com.mvc.EducationApp.mappers.TemaMapper;
-import com.mvc.EducationApp.repositories.GradoRepository;
-import com.mvc.EducationApp.repositories.MateriasDeGradoRepository;
 import com.mvc.EducationApp.repositories.TemaRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,12 +19,6 @@ public class TemaService {
 
     @Autowired
     private TemaRepository temaRepository;
-
-    @Autowired
-    private MateriasDeGradoRepository materiasDeGradoRepository;
-
-    @Autowired
-    private GradoRepository gradoRepository;
 
     public List<TemaDTO> getAllTemas() {
 
@@ -97,39 +84,7 @@ public class TemaService {
 
         return List.of();
     }
-    /*
-     * public List<TemaDTO> getTemaByCorreo(String correo) {
-     * 
-     * try {
-     * 
-     * List<Tema> temas = temaRepository.findByCorreo(correo).orElse(null);
-     * return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
-     * 
-     * } catch (Exception e) {
-     * 
-     * log.error("Error obteniendo tema por email", e);
-     * 
-     * }
-     * 
-     * return null;
-     * }
-     * 
-     * public List<TemaDTO> getTemaByDireccion(String direccion) {
-     * 
-     * try{
-     * 
-     * List<Tema> temas = temaRepository.findByDireccion(direccion).orElse(null);
-     * return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
-     * 
-     * } catch (Exception e) {
-     * 
-     * log.error("Error obteniendo tema por direccion");
-     * 
-     * }
-     * 
-     * return List.of();
-     * }
-     */
+
     /* Create, update, delete */
 
     public TemaDTO createTema(TemaDTO temaDTO) {

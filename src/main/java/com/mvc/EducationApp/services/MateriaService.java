@@ -52,55 +52,7 @@ public class MateriaService {
 
         return null;
     }
-/* 
-    public List<MateriaDTO> getMateriaByNombre(String nombre) {
-
-        try {
-
-            List<Materia> materias = materiaRepository.findByNombre(nombre).orElse(null);
-            return materias.stream().map(MateriaMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo materia por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-    public List<MateriaDTO> getMateriaByCorreo(String correo) {
-
-        try {
-
-            List<Materia> materias = materiaRepository.findByCorreo(correo).orElse(null);
-            return materias.stream().map(MateriaMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo materia por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<MateriaDTO> getMateriaByDireccion(String direccion) {
-
-        try{
-
-            List<Materia> materias = materiaRepository.findByDireccion(direccion).orElse(null);
-            return materias.stream().map(MateriaMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo materia por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public MateriaDTO createMateria(MateriaDTO materiaDTO){

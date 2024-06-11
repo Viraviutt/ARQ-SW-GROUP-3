@@ -60,46 +60,8 @@ public class AdminController {
         response.put("administrador", administrador);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getAdministradorsByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo administrador por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<AdministradorDTO> administradors = administradorServicio.getAdministradorByNombre(nombre);
-        response.put("administradors", administradors);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getAdministradorsByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo administrador por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<AdministradorDTO> administrador = administradorServicio.getAdministradorByCorreo(correo);
-        
-        if (administrador == null) {
-
-            response.put("error", "El administrador no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("administrador", administrador);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getAdministradorsByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo administrador por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<AdministradorDTO> administradors = administradorServicio.getAdministradorByDireccion(direccion);
-        response.put("administradors", administradors);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createAdministrador(@RequestBody AdministradorDTO administradorDTO) {
 

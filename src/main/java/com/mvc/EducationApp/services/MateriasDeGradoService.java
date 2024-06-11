@@ -79,55 +79,7 @@ public class MateriasDeGradoService {
 
         return List.of();
     }
-/* 
-    public List<MateriasDeGradoDTO> getMateriasDeGradoByNombre(String nombre) {
-
-        try {
-
-            List<MateriasDeGrado> materiasDeGrados = materiasDeGradoRepository.findByNombre(nombre).orElse(null);
-            return materiasDeGrados.stream().map(MateriasDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo materiasDeGrado por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-    public List<MateriasDeGradoDTO> getMateriasDeGradoByCorreo(String correo) {
-
-        try {
-
-            List<MateriasDeGrado> materiasDeGrados = materiasDeGradoRepository.findByCorreo(correo).orElse(null);
-            return materiasDeGrados.stream().map(MateriasDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo materiasDeGrado por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<MateriasDeGradoDTO> getMateriasDeGradoByDireccion(String direccion) {
-
-        try{
-
-            List<MateriasDeGrado> materiasDeGrados = materiasDeGradoRepository.findByDireccion(direccion).orElse(null);
-            return materiasDeGrados.stream().map(MateriasDeGradoMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo materiasDeGrado por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public MateriasDeGradoDTO createMateriasDeGrado(MateriasDeGradoDTO materiasDeGradoDTO){

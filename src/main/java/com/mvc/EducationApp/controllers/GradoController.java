@@ -71,34 +71,8 @@ public class GradoController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/*     @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getGradosByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo grado por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<GradoDTO> grado = gradoServicio.getGradoByCorreo(correo);
-        
-        if (grado == null) {
-
-            response.put("error", "El grado no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("grado", grado);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getGradosByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo grado por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<GradoDTO> grados = gradoServicio.getGradoByDireccion(direccion);
-        response.put("grados", grados);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createGrado(@RequestBody GradoDTO gradoDTO) {
 

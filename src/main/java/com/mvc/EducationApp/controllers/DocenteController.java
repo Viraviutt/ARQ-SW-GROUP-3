@@ -72,35 +72,7 @@ public class DocenteController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
     
-/*
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getDocentesByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo docente por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<DocenteDTO> docente = docenteServicio.getDocenteByCorreo(correo);
-        
-        if (docente == null) {
-
-            response.put("error", "El docente no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("docente", docente);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getDocentesByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo docente por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<DocenteDTO> docentes = docenteServicio.getDocenteByDireccion(direccion);
-        response.put("docentes", docentes);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createDocente(@RequestBody DocenteDTO docenteDTO) {
 

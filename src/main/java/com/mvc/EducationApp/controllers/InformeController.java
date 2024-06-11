@@ -60,46 +60,8 @@ public class InformeController {
         response.put("informe", informe);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getInformesByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo informe por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<InformeDTO> informes = informeServicio.getInformeByNombre(nombre);
-        response.put("informes", informes);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getInformesByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo informe por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<InformeDTO> informe = informeServicio.getInformeByCorreo(correo);
-        
-        if (informe == null) {
-
-            response.put("error", "El informe no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("informe", informe);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getInformesByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo informe por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<InformeDTO> informes = informeServicio.getInformeByDireccion(direccion);
-        response.put("informes", informes);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createInforme(@RequestBody InformeDTO informeDTO) {
 

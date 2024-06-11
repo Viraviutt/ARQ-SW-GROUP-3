@@ -74,39 +74,6 @@ public class DocenteService {
         return List.of();
     }
 
-/*
-    public List<DocenteDTO> getDocenteByCorreo(String correo) {
-
-        try {
-
-            List<Docente> docentes = docenteRepository.findByCorreo(correo).orElse(null);
-            return docentes.stream().map(DocenteMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo docente por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<DocenteDTO> getDocenteByDireccion(String direccion) {
-
-        try{
-
-            List<Docente> docentes = docenteRepository.findByDireccion(direccion).orElse(null);
-            return docentes.stream().map(DocenteMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo docente por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
     /*Create, update, delete */
     
     public DocenteDTO createDocente(DocenteDTO docenteDTO){

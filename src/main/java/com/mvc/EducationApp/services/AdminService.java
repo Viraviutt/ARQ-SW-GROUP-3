@@ -57,55 +57,7 @@ public class AdminService {
 
         return adminRepository.count();
     }
-/* 
-    public List<AdministradorDTO> getAdminByNombre(String nombre) {
-
-        try {
-
-            List<Administrador> admins = adminRepository.findByNombre(nombre).orElse(null);
-            return admins.stream().map(AdminMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo admin por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-    public List<AdminDTO> getAdminByCorreo(String correo) {
-
-        try {
-
-            List<Admin> admins = adminRepository.findByCorreo(correo).orElse(null);
-            return admins.stream().map(AdminMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo admin por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<AdminDTO> getAdminByDireccion(String direccion) {
-
-        try{
-
-            List<Admin> admins = adminRepository.findByDireccion(direccion).orElse(null);
-            return admins.stream().map(AdminMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo admin por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public AdministradorDTO createAdmin(AdministradorDTO adminDTO){

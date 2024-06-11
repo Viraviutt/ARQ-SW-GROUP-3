@@ -8,13 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.mvc.EducationApp.entities.Actividad;
-import com.mvc.EducationApp.entities.Tema;
 
 
 @RepositoryRestResource
 public interface ActividadRepository extends JpaRepository<Actividad, Long> {
 
-    /* find by nombre de una materia */
     @Query("SELECT a FROM Actividad a JOIN FETCH a.idMateria m WHERE lower(m.nombre) LIKE lower(?1)")
     Optional<List<Actividad>> findByMateria(String materia);
 

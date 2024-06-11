@@ -52,55 +52,7 @@ public class InformeService {
 
         return null;
     }
-/* 
-    public List<InformeDTO> getInformeByNombre(String nombre) {
-
-        try {
-
-            List<Informe> informes = informeRepository.findByNombre(nombre).orElse(null);
-            return informes.stream().map(InformeMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e){
-
-            log.error("Error obteniendo informe por nombre", e);
-
-        }
-
-        return List.of();    
-    }
-
-    public List<InformeDTO> getInformeByCorreo(String correo) {
-
-        try {
-
-            List<Informe> informes = informeRepository.findByCorreo(correo).orElse(null);
-            return informes.stream().map(InformeMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo informe por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<InformeDTO> getInformeByDireccion(String direccion) {
-
-        try{
-
-            List<Informe> informes = informeRepository.findByDireccion(direccion).orElse(null);
-            return informes.stream().map(InformeMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo informe por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public InformeDTO createInforme(InformeDTO informeDTO){

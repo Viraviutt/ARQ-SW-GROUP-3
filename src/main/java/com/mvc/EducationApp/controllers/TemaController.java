@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mvc.EducationApp.dto.ActividadDTO;
 import com.mvc.EducationApp.dto.TemaDTO;
 import com.mvc.EducationApp.services.TemaService;
 
@@ -90,36 +89,8 @@ public class TemaController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
-/*
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getTemasByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo tema por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<TemaDTO> tema = temaServicio.getTemaByCorreo(correo);
-        
-        if (tema == null) {
-
-            response.put("error", "El tema no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("tema", tema);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getTemasByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo tema por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<TemaDTO> temas = temaServicio.getTemaByDireccion(direccion);
-        response.put("temas", temas);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createTema(@RequestBody TemaDTO temaDTO) {
 

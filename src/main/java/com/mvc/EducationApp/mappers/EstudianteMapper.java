@@ -17,9 +17,6 @@ public interface EstudianteMapper {
     @Mapping(source = "idGrado.idGrado", target = "idGrado")
     public EstudianteDTO toDTO(Estudiante estudiante);
 
-//    @Mapping(target = "idGrado", ignore = true)
-//    public Estudiante toEntity(EstudianteDTO estudianteDTO);
-
     default Estudiante toEntity(EstudianteDTO estudianteDTO, EstudianteRepository estudianteRepository, GradoRepository gradoRepository){
         
         if (estudianteDTO == null) {

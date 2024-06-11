@@ -60,46 +60,8 @@ public class DocentesDeGradoController {
         response.put("docentesDeGrado", docentesDeGrado);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getDocentesDeGradosByNombre(@PathVariable("nombre") String nombre) {
-
-        log.info("Obteniendo docentesDeGrado por nombre: " + nombre);
-        HashMap<String, Object> response = new HashMap<>();
-        List<DocentesDeGradoDTO> docentesDeGrados = docentesDeGradoServicio.getDocentesDeGradoByNombre(nombre);
-        response.put("docentesDeGrados", docentesDeGrados);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/correo/{correo}")
-    public ResponseEntity<HashMap<String, Object>> getDocentesDeGradosByCorreo(@PathVariable("correo") String correo) {
-
-        log.info("Obteniendo docentesDeGrado por correo: " + correo);
-        HashMap<String, Object> response = new HashMap<>();
-        List<DocentesDeGradoDTO> docentesDeGrado = docentesDeGradoServicio.getDocentesDeGradoByCorreo(correo);
-        
-        if (docentesDeGrado == null) {
-
-            response.put("error", "El docentesDeGrado no ha sido encontrado");
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-        
-        response.put("docentesDeGrado", docentesDeGrado);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/direccion/{direccion}")
-    public ResponseEntity<HashMap<String, Object>> getDocentesDeGradosByDireccion(@PathVariable("direccion") String direccion) {
-
-        log.info("Obteniendo docentesDeGrado por direccion: " + direccion);
-        HashMap<String, Object> response = new HashMap<>();
-        List<DocentesDeGradoDTO> docentesDeGrados = docentesDeGradoServicio.getDocentesDeGradoByDireccion(direccion);
-        response.put("docentesDeGrados", docentesDeGrados);
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-*/
+    
+    /*Create, update, delete controllers*/
     @PostMapping("")
     public ResponseEntity<HashMap<String, Object>> createDocentesDeGrado(@RequestBody DocentesDeGradoDTO docentesDeGradoDTO) {
 

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.entities.Estudiante;
-import com.mvc.EducationApp.entities.Grado;
 import com.mvc.EducationApp.mappers.EstudianteMapper;
 import com.mvc.EducationApp.repositories.EstudianteRepository;
 import com.mvc.EducationApp.repositories.GradoRepository;
@@ -95,39 +94,7 @@ public class EstudianteService {
 
         return List.of();    
     }
-/*
-    public List<EstudianteDTO> getEstudianteByCorreo(String correo) {
-
-        try {
-
-            List<Estudiante> estudiantes = estudianteRepository.findByCorreo(correo).orElse(null);
-            return estudiantes.stream().map(EstudianteMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo estudiante por email", e);
-
-        }
-
-        return null;
-    }
-
-    public List<EstudianteDTO> getEstudianteByDireccion(String direccion) {
-
-        try{
-
-            List<Estudiante> estudiantes = estudianteRepository.findByDireccion(direccion).orElse(null);
-            return estudiantes.stream().map(EstudianteMapper.INSTANCE::toDTO).toList();
-
-        } catch (Exception e) {
-
-            log.error("Error obteniendo estudiante por direccion");
-
-        }
-
-        return List.of();
-    }
-*/
+    
     /*Create, update, delete */
     
     public EstudianteDTO createEstudiante(EstudianteDTO estudianteDTO){

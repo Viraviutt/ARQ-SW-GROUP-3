@@ -12,7 +12,6 @@ import com.mvc.EducationApp.entities.Grado;
 @RepositoryRestResource
 public interface GradoRepository extends JpaRepository<Grado, Long> {
 
-    /* find by nombre */
     @Query("SELECT g FROM Grado g WHERE g.nombre = ?1")
     Optional<List<Grado>> findByNombre(String nombre);
 
