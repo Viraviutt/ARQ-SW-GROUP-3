@@ -144,11 +144,7 @@ public class EstudianteService {
 
             Estudiante estudiante = EstudianteMapper.INSTANCE.toEntity(estudianteDTO, estudianteRepository, gradoRepository);
 
-            
-            
-            estudiante.setIdEstudiante(estudianteAActualizar.getIdEstudiante());
-
-            estudianteAActualizar = estudianteRepository.save(estudiante);
+            estudianteAActualizar.actualizarSoloSi(estudiante);
 
             Estudiante savedEstudiante = estudianteRepository.save(estudianteAActualizar);
             return EstudianteMapper.INSTANCE.toDTO(savedEstudiante);
