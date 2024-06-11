@@ -80,7 +80,7 @@ public class TemaController {
     }
  
     @GetMapping("/materia/{materia}/{grado}")
-    public ResponseEntity<HashMap<String, Object>> getTemasByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("materia") Long grado) {
+    public ResponseEntity<HashMap<String, Object>> getTemasByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("grado") Long grado) {
 
         log.info("Obteniendo tema por materia: " + materia + "y grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
