@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mvc.EducationApp.entities.Estudiante;
-import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.dto.FormLogin;
 import com.mvc.EducationApp.entities.Administrador;
 import com.mvc.EducationApp.entities.Docente;

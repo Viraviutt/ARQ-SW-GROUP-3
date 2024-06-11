@@ -52,6 +52,11 @@ public class AdminService {
 
         return null;
     }
+
+    public Long getCounterAdmin(){
+
+        return adminRepository.count();
+    }
 /* 
     public List<AdministradorDTO> getAdminByNombre(String nombre) {
 

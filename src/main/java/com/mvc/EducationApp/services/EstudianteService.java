@@ -58,6 +58,10 @@ public class EstudianteService {
         return null;
     }
 
+    public Long getCounterEstudiante(){
+        return estudianteRepository.count();
+    }
+
     public List<EstudianteDTO> getEstudianteByIdGrado(Long id) {
 
         try {
@@ -65,6 +69,7 @@ public class EstudianteService {
             List<Estudiante> estudiante = estudianteRepository.findByGradoId(id).orElse(null);
 
             return estudiante.stream().map(EstudianteMapper.INSTANCE::toDTO).toList();
+
 
         } catch (Exception e) {
 

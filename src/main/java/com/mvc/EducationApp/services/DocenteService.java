@@ -52,6 +52,11 @@ public class DocenteService {
 
         return null;
     }
+
+    public Long getCounterDocente(){
+
+        return docenteRepository.count();
+    }
  
     public List<DocenteDTO> getDocenteByNombre(String nombre) {
 
