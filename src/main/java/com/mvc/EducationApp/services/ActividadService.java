@@ -52,13 +52,13 @@ public class ActividadService {
 
         return null;
     }
-/*
-    public List<ActividadDTO> getActividadByNombre(String nombre) {
+
+    public List<ActividadDTO> getActividadByMateria(String materia) {
 
         try {
 
-            List<Actividad> actividads = actividadRepository.findByNombre(nombre).orElse(null);
-            return actividads.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
+            List<Actividad> actividades = actividadRepository.findByMateria(materia).orElse(null);
+            return actividades.stream().map(ActividadMapper.INSTANCE::toDTO).toList();
 
         } catch (Exception e){
 
@@ -68,7 +68,7 @@ public class ActividadService {
 
         return List.of();    
     }
-
+/*
     public List<ActividadDTO> getActividadByCorreo(String correo) {
 
         try {

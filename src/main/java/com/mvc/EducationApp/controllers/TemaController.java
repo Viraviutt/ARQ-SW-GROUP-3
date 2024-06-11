@@ -60,18 +60,19 @@ public class TemaController {
         response.put("tema", tema);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-/* 
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<HashMap<String, Object>> getTemasByNombre(@PathVariable("nombre") String nombre) {
+ 
+    @GetMapping("/materia/{materia}/{grado}")
+    public ResponseEntity<HashMap<String, Object>> getTemasByMateriasDeGrado(@PathVariable("materia") Long materia, @PathVariable("materia") Long grado) {
 
-        log.info("Obteniendo tema por nombre: " + nombre);
+        log.info("Obteniendo tema por materia: " + materia + "y grado: " + grado);
         HashMap<String, Object> response = new HashMap<>();
-        List<TemaDTO> temas = temaServicio.getTemaByNombre(nombre);
+        List<TemaDTO> temas = temaServicio.getTemaByMateriasDeGrado(materia, grado);
         response.put("temas", temas);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+/*
     @GetMapping("/correo/{correo}")
     public ResponseEntity<HashMap<String, Object>> getTemasByCorreo(@PathVariable("correo") String correo) {
 

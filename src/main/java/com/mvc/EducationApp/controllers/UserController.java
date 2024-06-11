@@ -1,6 +1,7 @@
 package com.mvc.EducationApp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,16 +40,11 @@ public class UserController {
     @Autowired
     AdminService adminService;
 
-    CountUsers countUsers;
-
     @GetMapping("")
     public CountUsers countUsers() {
 
-        countUsers.setCountEstudiantes(estudianteService.getCounterEstudiante());
-        countUsers.setCountDocentes(docenteService.getCounterDocente());
-        countUsers.setCountAdmins(adminService.getCounterAdmin());
-
-        return countUsers;
+        return new CountUsers(estudianteService.getCounterEstudiante(), docenteService.getCounterDocente(), adminService.getCounterAdmin());
+        
     }
 
 }

@@ -128,6 +128,7 @@ public class EstudianteController {
         response.put("estudiante", createdEstudiante);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+        
     }
 
     @PutMapping("/{id}")

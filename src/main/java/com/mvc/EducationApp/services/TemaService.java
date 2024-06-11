@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.TemaDTO;
+import com.mvc.EducationApp.entities.Grado;
+import com.mvc.EducationApp.entities.MateriasDeGrado;
 import com.mvc.EducationApp.entities.Tema;
 import com.mvc.EducationApp.mappers.TemaMapper;
+import com.mvc.EducationApp.repositories.GradoRepository;
+import com.mvc.EducationApp.repositories.MateriasDeGradoRepository;
 import com.mvc.EducationApp.repositories.TemaRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +23,12 @@ public class TemaService {
 
     @Autowired
     private TemaRepository temaRepository;
+
+    @Autowired
+    private MateriasDeGradoRepository materiasDeGradoRepository;
+
+    @Autowired
+    private GradoRepository gradoRepository;
 
     public List<TemaDTO> getAllTemas() {
 
@@ -52,12 +62,16 @@ public class TemaService {
 
         return null;
     }
-/* 
-    public List<TemaDTO> getTemaByNombre(String nombre) {
+ 
+    public List<TemaDTO> getTemaByMateriasDeGrado(Long materia, Long grado) {
 
         try {
 
-            List<Tema> temas = temaRepository.findByNombre(nombre).orElse(null);
+            MateriasDeGrado materiasDeGrado = materiasDeGradoRepository.findById(materia).orElse(null);
+
+            Grado grados = gradoRepository.findById(grado).orElse(null);
+
+            List<Tema> temas = temaRepository.findByMateriasDeGrado(materiasDeGrado.getIdMateria().getIdMateria(), grados.getIdGrado()).orElse(null);
             return temas.stream().map(TemaMapper.INSTANCE::toDTO).toList();
 
         } catch (Exception e){
@@ -68,7 +82,7 @@ public class TemaService {
 
         return List.of();    
     }
-
+/*
     public List<TemaDTO> getTemaByCorreo(String correo) {
 
         try {
