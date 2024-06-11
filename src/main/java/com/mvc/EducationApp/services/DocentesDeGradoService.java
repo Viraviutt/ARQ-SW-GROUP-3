@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mvc.EducationApp.dto.DocentesDeGradoDTO;
+import com.mvc.EducationApp.entities.Docente;
 import com.mvc.EducationApp.entities.DocentesDeGrado;
 import com.mvc.EducationApp.mappers.DocentesDeGradoMapper;
+import com.mvc.EducationApp.repositories.DocenteRepository;
 import com.mvc.EducationApp.repositories.DocentesDeGradoRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,9 @@ public class DocentesDeGradoService {
 
     @Autowired
     private DocentesDeGradoRepository docentesDeGradoRepository;
+
+    @Autowired
+    private DocenteRepository docenteRepository;
 
     public List<DocentesDeGradoDTO> getAllDocentesDeGrados() {
 
@@ -37,12 +42,15 @@ public class DocentesDeGradoService {
 
     }
 
-    public DocentesDeGradoDTO getDocentesDeGradoById(Long id) {
+    public List<DocentesDeGradoDTO> getDocentesDeGradoByIdDocente(Long id) {
 
         try {
 
-            DocentesDeGrado docentesDeGrado = docentesDeGradoRepository.findById(id).orElse(null);
-            return DocentesDeGradoMapper.INSTANCE.toDTO(docentesDeGrado);
+            Docente docente = docenteRepository.findById(id).orElse(null);
+
+            List<DocentesDeGrado> docentesDeGrados = docentesDeGradoRepository.findByIdDocente(docente.getIdDocente()).orElse(null);
+
+            return docentesDeGrados.stream().map(DocentesDeGradoMapper.INSTANCE::toDTO).toList();
 
         } catch (Exception e) {
 

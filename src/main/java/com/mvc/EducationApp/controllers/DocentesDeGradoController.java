@@ -48,7 +48,7 @@ public class DocentesDeGradoController {
 
         log.info("Obteniendo docentesDeGrado por id: " + id);
         HashMap<String, Object> response = new HashMap<>();
-        DocentesDeGradoDTO docentesDeGrado = docentesDeGradoServicio.getDocentesDeGradoById(id);
+        List<DocentesDeGradoDTO> docentesDeGrado = docentesDeGradoServicio.getDocentesDeGradoByIdDocente(id);
 
         if (docentesDeGrado == null) {
 

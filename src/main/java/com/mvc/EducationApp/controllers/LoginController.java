@@ -3,10 +3,12 @@ package com.mvc.EducationApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mvc.EducationApp.entities.Estudiante;
+import com.mvc.EducationApp.dto.EstudianteDTO;
 import com.mvc.EducationApp.entities.Administrador;
 import com.mvc.EducationApp.entities.Docente;
 import com.mvc.EducationApp.repositories.AdminRepository;
@@ -32,19 +34,19 @@ public class LoginController {
     private AdminRepository adminRepository;
 
     @PostMapping("")
-    public Boolean verifyLogin(String correo, String tipo, String clave){
+    public Boolean verifyLogin(@RequestBody formLogin formLogin){
 
-        log.info("Verificando el tipo de usuario: " + tipo);
+        log.info("Verificando el tipo de usuario: " + formLogin.getTipo());
 
-        switch (tipo) {
+        switch (formLogin.getTipo()) {
 
             case "1":
 
                 try {
 
-                    Estudiante estudiante = estudianteRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
+                    Estudiante estudiante = estudianteRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El estudiante no existe"));
 
-                    if (estudiante.getClave().equals(clave)) {
+                    if (estudiante.getClave().equals(formLogin.getClave())) {
                         return true;
                     }
 
@@ -61,9 +63,9 @@ public class LoginController {
 
                 try {
 
-                    Docente docente = docenteRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El docente no existe"));
+                    Docente docente = docenteRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El docente no existe"));
 
-                    if (docente.getClave().equals(clave)) {
+                    if (docente.getClave().equals(formLogin.getClave())) {
                         return true;
                     }
 
@@ -80,9 +82,9 @@ public class LoginController {
 
                 try {
 
-                    Administrador admin = adminRepository.findByCorreo(correo).orElseThrow(() -> new IllegalArgumentException ("El admin no existe"));
+                    Administrador admin = adminRepository.findByCorreo(formLogin.getCorreo()).orElseThrow(() -> new IllegalArgumentException ("El admin no existe"));
 
-                    if (admin.getClave().equals(clave)) {
+                    if (admin.getClave().equals(formLogin.getClave())) {
                         return true;
                     }
 

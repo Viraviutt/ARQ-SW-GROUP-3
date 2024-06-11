@@ -57,6 +57,23 @@ public class EstudianteService {
 
         return null;
     }
+
+    public List<EstudianteDTO> getEstudianteByIdGrado(Long id) {
+
+        try {
+
+            List<Estudiante> estudiante = estudianteRepository.findByGradoId(id).orElse(null);
+
+            return estudiante.stream().map(EstudianteMapper.INSTANCE::toDTO).toList();
+
+        } catch (Exception e) {
+
+            log.error("Error obteniendo estudiante por id",e);
+
+        }
+
+        return null;
+    }
  
     public List<EstudianteDTO> getEstudianteByNombre(String nombre) {
 
